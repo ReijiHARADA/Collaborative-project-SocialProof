@@ -1,24 +1,110 @@
-# A/B Prototype
+# EC 商品詳細 — ソーシャルプルーフ A/B プロトタイプ
 
-## このフォルダの役割 / 이 폴더의 역할
+日本人・韓国人ユーザーを想定した、商品詳細画面のソーシャルプルーフ文言が行動に与える影響を記録する研究用の Next.js アプリです。
 
-このフォルダは、A/B テストの案を整理し、比較用の画面や測定方法をまとめるための作業場所です。  
-이 폴더는 A/B 테스트 안을 정리하고, 비교용 화면과 측정 방법을 모아두는 작업 공간입니다.
+## 技術スタック
 
-## 進め方 / 진행 방법
+- Next.js App Router
+- TypeScript
+- Tailwind CSS
+- shadcn/ui（一部コンポーネント）
 
-1. `docs/product/research-plan-summary.md` に研究計画の要約を書く  
-   `docs/product/research-plan-summary.md`에 연구계획 요약을 작성합니다
-2. その内容を `ab-prototype/experiment-brief.md` に実験概要として整理する  
-   그 내용을 `ab-prototype/experiment-brief.md`에 실험 개요로 정리합니다
-3. `ab-prototype/variants/` に A 案と B 案の違いを書く  
-   `ab-prototype/variants/`에 A안과 B안의 차이를 작성합니다
-4. `ab-prototype/metrics/` に測定方法を書く  
-   `ab-prototype/metrics/`에 측정 방법을 작성합니다
-5. `ab-prototype/prototype/` に画面モックや試作を置く  
-   `ab-prototype/prototype/`에 화면 목업이나 시안을 둡니다
+## セットアップ
 
-## 基本方針 / 기본 원칙
+```bash
+npm install
+npm run dev
+```
 
-まだ方向性が固まっていない段階なので、A/B テスト関連の資料は本体アプリから分けて管理します。  
-아직 방향이 확정되지 않은 단계이므로, A/B 테스트 관련 자료는 본체 앱과 분리해서 관리합니다.
+ブラウザで [http://localhost:3000](http://localhost:3000) を開きます。
+
+## 環境変数
+
+| 変数 | 説明 |
+|------|------|
+| **`LOG_ENDPOINT`（推奨）** | Google Apps Script のウェブアプリ URL。**サーバ側のみ**に設定（Vercel の Environment Variables）。クライアントは **`/api/log`** に POST し、Next.js が GASへ転送するため **CORS が不要**で URL も公開されない。 |
+| `NEXT_PUBLIC_LOG_ENDPOINT` | 任意。ブラウザから GAS に **直接** POST するとき。通常は不要。 |
+
+未設定、または送信に失敗した場合はログが **localStorage** に保存されます。
+
+`.env.local` に記述してください（例は `.env.example` 参照）。
+
+## 連携先スプレッドシート
+
+次のブックの **gid=`1471844174`** のシートに、**1 行 = 1 ログ**で追記する想定です（列は英語＋日韓説明の 2 行ヘッダー）。
+
+`https://docs.google.com/spreadsheets/d/1Cr2w3GpVxiqoK9ILBVQ_-6_TdjRnjfQBTHNYWCW4bpk/edit?gid=1471844174`
+
+手順・GAS のコピペ用コードは **[`docs/google-apps-script.md`](docs/google-apps-script.md)** を参照してください。
+
+## GitHub と Vercel（自動デプロイ）
+
+このアプリはリポジトリ直下ではなく **`ab-prototype/`** にあるため、Vercel の **Root Directory** に `ab-prototype` を指定してください。手順の詳細は **[`docs/vercel-github.md`](docs/vercel-github.md)** を参照してください。
+
+概要:
+
+1. `main` など運用ブランチへ push する  
+2. [Vercel](https://vercel.com) で GitHub リポジトリを Import する  
+3. **Root Directory**: `ab-prototype`  
+4. **Environment Variables** に必要なら **`LOG_ENDPOINT`** を追加する  
+
+以後、同じブランチへの push で **自動ビルド・デプロイ**されます。
+
+ビルド確認:
+
+```bash
+npm run build
+```
+
+## Google Sheets 連携（Google Apps Script）
+
+[`docs/google-apps-script.md`](docs/google-apps-script.md) のスクリプトをデプロイし、発行 URL を **`LOG_ENDPOINT`** に設定してください（推奨: **`/api/log` プロキシ経由**）。
+
+- 送信に失敗したログは自動的に **localStorage** に退避されます。
+
+## 実験ログの仕様
+
+### PatternLog（1 パターン = 1 レコード）
+
+商品詳細の各条件が終了したとき（タイムアウト / 戻る / カート追加）に 1 件送信されます。
+
+主なフィールド:
+
+- `sessionId`: セッション UUID
+- `language`: `ja` | `ko`
+- `conditionIndex`: 0〜7
+- `conditionId`: `sales_volume` など 8 種
+- `socialProofText`: 画面上に出した文言
+- `action`: `timeout` | `back` | `add_to_cart`
+- `durationSec`: 滞在時間（秒）
+- `selectedSize`, `selectedColor`, `quantity`
+
+### EventLog（任意）
+
+カート完了画面の「カートを見る」など補助操作で送信されます。
+
+- `eventName`, `eventValue`, `conditionId`, `timestamp`
+
+### POST ボディ形式
+
+`lib/logger.ts` は次のいずれかの形で送信します。
+
+- Pattern: `{ "type": "pattern", ...PatternLogのフィールド }`
+- Event: `{ "type": "event", ...EventLogのフィールド }`
+
+## 画面フロー
+
+1. 言語選択（日本語 / 한국어）
+2. 基本情報入力
+3. 体型タイプ（BMI に基づく表示）
+4. 商品詳細（8 パターン固定順）
+5. カート追加後の一時画面（任意）
+6. 実験終了後のログ確認（CSV 出力・localStorage 一覧）
+
+## 商品画像
+
+`public/product-main.jpg` を配置すると商品画像として表示されます。未配置時はプレースホルダーに切り替わります。
+
+## ライセンス
+
+研究・プロトタイプ用途を想定しています。
