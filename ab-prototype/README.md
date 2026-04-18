@@ -50,6 +50,8 @@ npm run dev
 
 以後、同じブランチへの push で **自動ビルド・デプロイ**されます。
 
+デプロイは成功なのに **404** になる場合は、多くが **Root Directory** または **Output Directory** の設定ミスです。→ [`docs/vercel-github.md` のトラブルシュート](docs/vercel-github.md#デプロイは-ready-なのにブラウザが-404not_foundになる) を参照してください。
+
 ビルド確認:
 
 ```bash
