@@ -10,15 +10,13 @@ export function PhoneShell({
   className?: string;
 }) {
   return (
-    <div className="flex min-h-dvh justify-center bg-neutral-100 px-2 py-4 text-neutral-900">
-      <div
-        className={cn(
-          "flex w-full max-w-[430px] flex-col border border-neutral-200 bg-white shadow-sm",
-          className
-        )}
-      >
-        {children}
-      </div>
+    <div
+      className={cn(
+        "relative isolate mx-auto flex min-h-dvh w-full max-w-[430px] flex-col bg-white text-neutral-900",
+        className
+      )}
+    >
+      {children}
     </div>
   );
 }

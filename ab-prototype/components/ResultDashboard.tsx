@@ -53,12 +53,12 @@ export function ResultDashboard() {
   const mark = (ok: boolean) => (ok ? "○" : "—");
 
   return (
-    <div className="flex flex-col gap-8 px-4 py-8 pb-16 text-sm">
+    <div className="flex flex-col gap-8 px-4 py-6 pb-8 text-sm [padding-bottom:max(2rem,env(safe-area-inset-bottom))]">
       <div className="flex flex-col gap-3">
         <h1 className="text-lg font-medium">{m.resultTitle}</h1>
         <Button
           type="button"
-          className="h-10 w-full max-w-xs rounded-md"
+          className="h-11 min-h-11 w-full max-w-xs rounded-md"
           onClick={onCsv}
         >
           {m.resultDownloadCsv}
@@ -165,7 +165,7 @@ export function ResultDashboard() {
       <section className="space-y-2">
         <button
           type="button"
-          className="text-sm underline underline-offset-4"
+          className="min-h-11 py-2 text-left text-sm touch-manipulation underline underline-offset-4"
           onClick={() => setShowStorage((s) => !s)}
         >
           {m.resultLocalTitle} ({showStorage ? "▼" : "▶"})
@@ -187,7 +187,7 @@ export function ResultDashboard() {
       <Button
         type="button"
         variant="outline"
-        className="h-11 rounded-md"
+        className="h-11 min-h-11 rounded-md"
         onClick={() => resetExperiment()}
       >
         {lang === "ja" ? "最初から" : "처음부터"}

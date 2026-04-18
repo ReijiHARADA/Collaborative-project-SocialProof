@@ -83,8 +83,9 @@ export function UserInfoForm() {
   return (
     <form
       onSubmit={onSubmit}
-      className="flex flex-col gap-8 px-5 py-8 pb-28 text-sm leading-relaxed"
+      className="flex min-h-dvh flex-col"
     >
+      <div className="flex flex-1 flex-col gap-8 px-5 py-8 text-sm leading-relaxed">
       <h1 className="text-lg font-medium">{m.userInfoTitle}</h1>
 
       <fieldset className="space-y-2">
@@ -193,13 +194,17 @@ export function UserInfoForm() {
           </select>
         </div>
       </div>
+      </div>
 
-      <div className="fixed bottom-0 left-0 right-0 z-10 flex justify-center bg-neutral-100/90 p-4 backdrop-blur-sm">
-        <div className="w-full max-w-[430px]">
-          <Button type="submit" className="h-12 w-full rounded-md text-base">
-            {m.userInfoSubmit}
-          </Button>
-        </div>
+      <div
+        className="sticky bottom-0 z-50 border-t border-neutral-200 bg-white/95 px-5 py-4 backdrop-blur-sm [padding-bottom:max(1rem,env(safe-area-inset-bottom))]"
+      >
+        <Button
+          type="submit"
+          className="h-12 min-h-12 w-full rounded-md text-base"
+        >
+          {m.userInfoSubmit}
+        </Button>
       </div>
     </form>
   );

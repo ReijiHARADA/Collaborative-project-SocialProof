@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={`${notoSans.variable} h-full antialiased`}>
-      <body className="min-h-dvh flex flex-col bg-white font-sans text-neutral-900">
+      <body className="flex min-h-dvh flex-col overflow-x-hidden bg-white font-sans text-neutral-900 [-webkit-tap-highlight-color:transparent]">
         {children}
       </body>
     </html>

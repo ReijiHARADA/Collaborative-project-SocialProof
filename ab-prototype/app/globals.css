@@ -131,4 +131,13 @@
       "Malgun Gothic", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
       sans-serif;
   }
+  /** モバイルでダブルタップ拡大や誤タップを減らす */
+  button,
+  [type="button"],
+  [type="submit"],
+  [role="button"],
+  summary,
+  select {
+    touch-action: manipulation;
+  }
 }
