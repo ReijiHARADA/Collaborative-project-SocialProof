@@ -24,10 +24,15 @@ import type {
 const AGES: AgeGroup[] = ["10s", "20s", "30s", "40s", "50plus"];
 const GENDERS: Gender[] = ["male", "female", "other"];
 
+/** 140〜200cm、5cm 刻み（保存値はその代表 cm） */
 function heights(): number[] {
   const out: number[] = [];
-  for (let h = 140; h <= 200; h += 1) out.push(h);
+  for (let h = 140; h <= 200; h += 5) out.push(h);
   return out;
+}
+
+function heightOptionLabel(cm: number): string {
+  return `~${cm}cm`;
 }
 
 function weights(): number[] {
@@ -167,8 +172,7 @@ export function UserInfoForm() {
           >
             {heights().map((h) => (
               <option key={h} value={h}>
-                {h}
-                {m.heightUnit}
+                {heightOptionLabel(h)}
               </option>
             ))}
           </select>
