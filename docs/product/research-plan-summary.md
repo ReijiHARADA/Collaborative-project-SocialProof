@@ -1,42 +1,54 @@
 # Research Plan Summary
 
-This file is the structured summary of the research-plan PDF referenced in NotebookLM.
+## この文書の役割 / 이 문서의 역할
 
-## What to extract from the PDF
+この文書は、研究計画 PDF の内容を共同研究メンバー向けに読みやすく整理するための要約ファイルです。  
+이 문서는 연구계획 PDF의 내용을 공동연구 참여자가 이해하기 쉽게 정리하는 요약 파일입니다.
 
-- Background and problem statement
-- Research objective
-- Target participants or users
-- Key hypotheses
-- Variables to manipulate
-- Outcome measures
-- Constraints and risks
-- Implications for the A/B test
+## PDF から抜き出したい内容 / PDF에서 추출하고 싶은 내용
 
-## Output format
+- 背景と問題設定  
+  배경과 문제 정의
+- 研究目的  
+  연구 목적
+- 対象参加者または対象ユーザー  
+  대상 참여자 또는 대상 사용자
+- 主要な仮説  
+  주요 가설
+- 操作する変数  
+  조작할 변수
+- 評価指標  
+  평가 지표
+- 制約とリスク  
+  제약과 위험
+- A/B テストへの示唆  
+  A/B 테스트에 주는 시사점
 
-When the PDF content is available, summarize it here in short sections:
+## 記入フォーマット / 작성 형식
 
-### Background
+PDF の内容が確認できたら、以下の形で簡潔にまとめてください。  
+PDF 내용을 확인할 수 있으면 아래 형식으로 간단히 정리해 주세요.
 
-TBD
-
-### Objective
-
-TBD
-
-### Hypotheses
-
-TBD
-
-### Testable intervention
-
-TBD
-
-### Measurement plan
+### 背景 / 배경
 
 TBD
 
-### Design implications
+### 目的 / 목적
+
+TBD
+
+### 仮説 / 가설
+
+TBD
+
+### 実験可能な介入 / 실험 가능한 개입
+
+TBD
+
+### 測定計画 / 측정 계획
+
+TBD
+
+### デザインへの示唆 / 디자인에 대한 시사점
 
 TBD

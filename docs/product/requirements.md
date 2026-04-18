@@ -1,28 +1,37 @@
 # Product Requirements
 
-Source of truth for product requirements consolidated from the research-plan PDF in NotebookLM.
+## この文書の役割 / 이 문서의 역할
 
-## Current status
+この文書は、NotebookLM 内の研究計画 PDF から整理した要件の置き場所です。  
+이 문서는 NotebookLM 안의 연구계획 PDF에서 정리한 요구사항을 모아두는 곳입니다.
 
-The project is assumed to be in the experiment-definition phase rather than the final product-build phase.
+## 現在の理解 / 현재 이해
 
-## Current focus
+このプロジェクトは、最終実装より前の「実験定義フェーズ」にあります。  
+이 프로젝트는 최종 구현 이전의 “실험 정의 단계”에 있습니다.
 
-- define the A/B test objective
-- identify the user behavior to influence
-- specify the two variants to compare
-- decide success metrics and decision criteria
-- document implementation constraints from the research plan
+## 今整理すること / 지금 정리할 내용
 
-## Fill next
+- A/B テストの目的  
+  A/B 테스트의 목적
+- どの行動を変えたいか  
+  어떤 사용자 행동을 바꾸고 싶은지
+- 比較する 2 つの案の違い  
+  비교할 두 가지 안의 차이
+- 成功を判断する指標  
+  성공 여부를 판단할 지표
+- 研究計画からくる制約条件  
+  연구계획에서 오는 제약 조건
 
-- Research goal
-- Primary users
-- Intervention hypothesis
-- Variant A definition
-- Variant B definition
-- Primary metric
-- Secondary metrics
-- Sample or exposure assumptions
-- Screen scope for the test
-- Open questions
+## 次に埋める項目 / 다음에 채울 항목
+
+- 研究目的 / 연구 목적
+- 主な対象ユーザー / 주요 대상 사용자
+- 介入仮説 / 개입 가설
+- Variant A の定義 / Variant A 정의
+- Variant B の定義 / Variant B 정의
+- 主要指標 / 주요 지표
+- 補助指標 / 보조 지표
+- サンプル数または露出条件 / 표본 수 또는 노출 조건
+- テスト対象画面 / 테스트 대상 화면
+- 未解決事項 / 미해결 사항

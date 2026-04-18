@@ -1,36 +1,62 @@
 # SocialProof
 
-Repository scaffold for building the product from research-plan inputs and Figma design assets.
+## 概要 / 개요
 
-## Current phase
+このリポジトリは、研究計画と Figma デザインをもとに、A/B テスト用のプロトタイプを共同で進めるための共有作業場所です。  
+이 저장소는 연구계획과 Figma 디자인을 바탕으로 A/B 테스트용 프로토타입을 공동으로 진행하기 위한 공유 작업 공간입니다.
 
-The project is currently in the A/B test design stage.
+## 現在の段階 / 현재 단계
 
-The working assumption is:
+現在は最終プロダクトの実装段階ではなく、A/B テストを設計する段階です。  
+지금은 최종 제품 구현 단계가 아니라, A/B 테스트를 설계하는 단계입니다.
 
-- the NotebookLM source of truth is a research-plan PDF
-- the immediate deliverable is an experiment-ready prototype structure
-- product implementation will follow after hypotheses, variants, and metrics are fixed
+前提は次のとおりです。  
+기본 전제는 다음과 같습니다.
 
-## Structure
+- NotebookLM 内の研究計画 PDF を要件の出発点にする  
+  NotebookLM 안의 연구계획 PDF를 요구사항의 출발점으로 사용합니다
+- まずは実験に使う画面・仮説・測定方法を整理する  
+  우선 실험에 사용할 화면, 가설, 측정 방법을 정리합니다
+- 実装は、A/B テストの方向性が固まったあとに本格化する  
+  구현은 A/B 테스트 방향이 정리된 뒤 본격적으로 진행합니다
 
-- `ab-prototype`: A/B test working area
-- `apps/web`: main product application after experiment direction is fixed
-- `packages/ui`: shared UI components and design tokens
-- `docs/product`: product framing, research-plan summary, and experiment requirements
-- `docs/design`: design notes and screen mapping from Figma
-- `assets/figma`: exported images and reference assets from Figma
-- `content/research`: raw research artifacts and source files
+## フォルダ構成 / 폴더 구조
 
-## Notes
+- `ab-prototype`: A/B テスト用の作業領域  
+  `ab-prototype`: A/B 테스트 작업 공간
+- `apps/web`: 実験後に発展させる本体アプリ領域  
+  `apps/web`: 실험 이후 확장할 본체 앱 영역
+- `packages/ui`: 共通 UI パーツとデザイントークン  
+  `packages/ui`: 공통 UI 컴포넌트와 디자인 토큰
+- `docs/product`: 研究計画の整理、要件、実験方針  
+  `docs/product`: 연구계획 정리, 요구사항, 실험 방향
+- `docs/design`: Figma に基づく画面整理、コンポーネント整理  
+  `docs/design`: Figma 기반 화면 정리, 컴포넌트 정리
+- `assets/figma`: Figma から書き出した画像や参照素材  
+  `assets/figma`: Figma에서 내보낸 이미지 및 참고 자료
+- `content/research`: 研究資料、元データ、要約前の素材  
+  `content/research`: 연구 자료, 원본 데이터, 요약 전 자료
 
-The external links were not fully extractable in this environment:
+## 参加者向けの使い方 / 참여자를 위한 사용 방법
 
-- the provided NotebookLM URL behaved like a login/top-level URL rather than a directly shareable notebook
-- Figma MCP access hit the current plan rate limit before node data could be fetched
+研究内容や仮説を確認したいときは `docs/product` を見てください。  
+연구 내용이나 가설을 확인하고 싶을 때는 `docs/product`를 봐 주세요.
 
-The repository is therefore organized to accept:
+デザインや画面構成を確認したいときは `docs/design` と `assets/figma` を見てください。  
+디자인이나 화면 구성을 확인하고 싶을 때는 `docs/design`과 `assets/figma`를 봐 주세요.
 
-- research-plan summaries and extracted notes under `docs/product` and `content/research`
-- experiment specs under `ab-prototype`
-- later implementation under `apps/web` and `packages/ui`
+A/B テストの比較案や実験設計を確認したいときは `ab-prototype` を見てください。  
+A/B 테스트 비교안이나 실험 설계를 확인하고 싶을 때는 `ab-prototype`를 봐 주세요.
+
+## 現時点の注意 / 현재 시점의 참고 사항
+
+この環境では、外部リンクの内容を完全には取得できていません。  
+이 환경에서는 외부 링크의 내용을 완전히 가져오지 못했습니다.
+
+- NotebookLM のリンクは共有ノートではなくログイン導線のように見えました  
+  NotebookLM 링크는 공유 노트가 아니라 로그인 진입 링크처럼 보였습니다
+- Figma は MCP の利用上限に達していて詳細取得が止まっていました  
+  Figma는 MCP 사용 한도에 도달해 상세 정보를 가져오지 못했습니다
+
+そのため、今の構成は「研究計画を整理する場所」「デザインを整理する場所」「A/B テストを作る場所」を先に分けた状態です。  
+그래서 현재 구조는 “연구계획을 정리하는 곳”, “디자인을 정리하는 곳”, “A/B 테스트를 만드는 곳”을 먼저 구분해 둔 상태입니다.
