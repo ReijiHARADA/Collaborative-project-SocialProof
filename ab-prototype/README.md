@@ -35,7 +35,9 @@ npm run dev
 
 `https://docs.google.com/spreadsheets/d/1Cr2w3GpVxiqoK9ILBVQ_-6_TdjRnjfQBTHNYWCW4bpk/edit?gid=1471844174`
 
-手順・GAS のコピペ用コードは **[`docs/google-apps-script.md`](docs/google-apps-script.md)** を参照してください。
+- **全体の手順（GAS デプロイ → Vercel → 確認）**: [`docs/spreadsheet-setup.md`](docs/spreadsheet-setup.md)  
+- **列定義・GAS サンプル（縦持ち 21 列）**: [`docs/google-apps-script.md`](docs/google-apps-script.md)  
+- **共有リンクと横持ちシート（AB log-data 形式）**: [`docs/google-apps-script-wide-sheet.md`](docs/google-apps-script-wide-sheet.md)  
 
 ## GitHub と Vercel（自動デプロイ）
 

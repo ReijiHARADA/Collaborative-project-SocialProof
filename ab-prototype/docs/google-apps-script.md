@@ -1,5 +1,11 @@
 # Google スプレッドシートへ自動追記（このプロジェクト用）
 
+**初めて接続するときは**、ゼロからの手順を **[spreadsheet-setup.md](./spreadsheet-setup.md)** にまとめています（GAS デプロイ → `LOG_ENDPOINT` → 動作確認）。
+
+**共有リンクだけ**（`?usp=sharing` など）にした場合の意味と、**横持ち（条件ごとに列ブロック）のシート**用の GAS は **[google-apps-script-wide-sheet.md](./google-apps-script-wide-sheet.md)** を参照してください。
+
+---
+
 次のスプレッドシートの **指定シート（gid）** に、**1 回のログ = 1 行** で追記します。
 
 - スプレッドシート:  
@@ -117,6 +123,7 @@ function getLogSheet() {
 }
 
 function ensureHeaders(sheet) {
+  /** 既に何か行があるとヘッダ自動作成はスキップ。列順は appendRow と 1 行目を一致させること */
   if (sheet.getLastRow() > 0) {
     return;
   }
