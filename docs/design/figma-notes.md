@@ -1,22 +1,40 @@
 # Figma Notes
 
-Design notes and screen inventory derived from Figma.
+## この文書の役割 / 이 문서의 역할
 
-## Current status
+この文書は、Figma 上の画面と A/B テスト要件を結びつけるためのメモです。  
+이 문서는 Figma 화면과 A/B 테스트 요구사항을 연결하기 위한 메모입니다.
 
-The referenced file is:
+## 現在の状態 / 현재 상태
+
+参照対象:
 
 - File: `SIT-KMU_Be-cosakana`
 - Node: `474:171`
 
-Detailed metadata could not be fetched in this environment because the available Figma MCP quota was exhausted before the node could be inspected.
+この環境では Figma MCP の利用上限に達しているため、ノードの詳細メタデータ取得は未完了です。  
+이 환경에서는 Figma MCP 사용 한도에 도달해 노드 상세 메타데이터를 아직 가져오지 못했습니다.
 
-## Fill next
+## 現時点で確定している UI 要件 / 현재 시점에서 확정된 UI 요구사항
 
-- Screen names and hierarchy
-- Layout patterns
-- Shared components
-- Tokens: color, spacing, typography
-- Interaction states
-- Asset export list
+- A/B テストの差分は CTA 近くのソーシャルプルーフ文言に限定する  
+  A/B 테스트 차이는 CTA 근처의 소셜 프루프 문구로 제한한다
+- 商品画像、価格、商品名など主要情報は固定する  
+  상품 이미지, 가격, 상품명 등 주요 정보는 고정한다
+- Variant A と Variant B の視認性はそろえる  
+  Variant A와 Variant B의 가시성은 동일하게 맞춘다
+- 差分は「不特定多数ベース」か「近い集団ベース」かの表現に置く  
+  차이는 “불특정 다수 기반”인지 “유사 집단 기반”인지의 표현에 둔다
 
+## Figma で確認したい項目 / Figma에서 확인하고 싶은 항목
+
+- テスト対象が商品詳細画面か、一覧画面か  
+  테스트 대상이 상품 상세 화면인지 목록 화면인지
+- CTA の正確な位置  
+  CTA의 정확한 위치
+- ソーシャルプルーフを差し込める余白やコンポーネント  
+  소셜 프루프를 삽입할 수 있는 여백이나 컴포넌트
+- 日韓で共通利用できる UI パターンかどうか  
+  한일 공통으로 사용할 수 있는 UI 패턴인지 여부
+- 必要な画像やアイコンの書き出し有無  
+  필요한 이미지나 아이콘의 추출 필요 여부
